@@ -1,0 +1,4 @@
+*.classpath
+mavenplugin*/.settings/
+mavenplugin*/target/
+mavenplugin*/.project

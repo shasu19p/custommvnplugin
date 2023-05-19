@@ -1,0 +1,61 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.shasu19p</groupId>
+	<artifactId>mavenpluginclient</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>Creating own maven plugin and test</name>
+	<properties>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>org.apache.maven</groupId>
+			<artifactId>maven-plugin-api</artifactId>
+			<version>3.0</version>
+			<scope>provided</scope>
+		</dependency>
+		<!-- dependencies to annotations -->
+		<dependency>
+			<groupId>org.apache.maven.plugin-tools</groupId>
+			<artifactId>maven-plugin-annotations</artifactId>
+			<version>3.4</version>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>com.shasu19p</groupId>
+					<artifactId>mavenpluginown</artifactId>
+					<version>0.0.1-SNAPSHOT</version>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+		<plugins>
+			<plugin>
+				<groupId>com.shasu19p</groupId>
+				<artifactId>mavenpluginown</artifactId>
+				<!-- This can be configured here-->
+				<configuration>
+					<greeting>Welcome 2</greeting>
+				</configuration>
+				<executions>
+					<execution>
+						<id>sayhi</id> <!-- optional-->
+						<!-- This can be configured here also-->
+						<configuration>
+							<greeting>Welcome 1</greeting>
+						</configuration>
+						<phase>compile</phase>
+						<goals>
+							<goal>sayhi</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+</project>
